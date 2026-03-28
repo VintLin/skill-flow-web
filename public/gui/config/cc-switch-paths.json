@@ -1,0 +1,218 @@
+{
+  "$schema": "./config-schema.json",
+  "source": "cc-switch repository",
+  "sourcePath": "/Users/Vint/Repos/04_Reference/03_Tools/cc-switch/src-tauri/src",
+
+  "ccSwitch": {
+    "name": "CC-Switch",
+    "configDir": "~/.cc-switch/",
+    "database": "~/.cc-switch/cc-switch.db",
+    "settingsFile": "~/.cc-switch/settings.json"
+  },
+
+  "builtinSkillRepos": [
+    { "owner": "anthropics", "name": "skills", "branch": "main", "enabled": true },
+    { "owner": "ComposioHQ", "name": "awesome-claude-skills", "branch": "master", "enabled": true },
+    { "owner": "cexll", "name": "myclaude", "branch": "master", "enabled": true },
+    { "owner": "JimLiu", "name": "baoyu-skills", "branch": "main", "enabled": true }
+  ],
+
+  "skills": {
+    "ssotDir": "~/.cc-switch/skills/",
+    "backupDir": "~/.cc-switch/skill-backups/",
+    "syncMethods": ["auto", "symlink", "copy"],
+    "defaultSyncMethod": "auto",
+    "appSkillsDirs": {
+      "claude": "~/.claude/skills/",
+      "codex": "~/.codex/skills/",
+      "gemini": "~/.gemini/skills/",
+      "opencode": "~/.config/opencode/skills/",
+      "openclaw": "~/.openclaw/skills/"
+    }
+  },
+
+  "promptFiles": {
+    "claude": "~/.claude/CLAUDE.md",
+    "codex": "~/.codex/AGENTS.md",
+    "gemini": "~/.gemini/GEMINI.md",
+    "opencode": "~/.opencode/AGENTS.md",
+    "openclaw": "~/.openclaw/AGENTS.md"
+  },
+
+  "builtinAgents": {
+    "main": [
+      { "key": "sisyphus", "display": "Sisyphus", "recommended": "claude-opus-4-6" },
+      { "key": "hephaestus", "display": "Hephaestus", "recommended": "gpt-5.4" },
+      { "key": "prometheus", "display": "Prometheus", "recommended": "claude-opus-4-6" },
+      { "key": "atlas", "display": "Atlas", "recommended": "kimi-k2.5" }
+    ],
+    "sub": [
+      { "key": "oracle", "display": "Oracle", "recommended": "gpt-5.4" },
+      { "key": "librarian", "display": "Librarian", "recommended": "gemini-3-flash" },
+      { "key": "explore", "display": "Explore", "recommended": "grok-code-fast-1" },
+      { "key": "multimodal-looker", "display": "Multimodal-Looker", "recommended": "kimi-k2.5" },
+      { "key": "metis", "display": "Metis", "recommended": "claude-opus-4-6" },
+      { "key": "momus", "display": "Momus", "recommended": "gpt-5.4" },
+      { "key": "sisyphus-junior", "display": "Sisyphus-Junior", "recommended": "" }
+    ]
+  },
+
+  "disableableAgents": [
+    "Prometheus (Planner)",
+    "Atlas",
+    "oracle",
+    "librarian",
+    "explore",
+    "multimodal-looker",
+    "frontend-ui-ux-engineer",
+    "document-writer",
+    "Sisyphus-Junior",
+    "Metis (Plan Consultant)",
+    "Momus (Plan Reviewer)",
+    "OpenCode-Builder"
+  ],
+
+  "slimBuiltinAgents": {
+    "main": [
+      { "key": "orchestrator", "display": "Orchestrator", "recommended": "claude-opus-4-6" }
+    ],
+    "sub": [
+      { "key": "oracle", "display": "Oracle", "recommended": "gpt-5.4" },
+      { "key": "librarian", "display": "Librarian", "recommended": "gemini-3-flash" },
+      { "key": "explorer", "display": "Explorer", "recommended": "grok-code-fast-1" },
+      { "key": "designer", "display": "Designer", "recommended": "gemini-3-pro" },
+      { "key": "fixer", "display": "Fixer", "recommended": "gpt-5.4" }
+    ]
+  },
+
+  "slimDisableableAgents": [
+    "orchestrator",
+    "oracle",
+    "librarian",
+    "explorer",
+    "designer",
+    "fixer"
+  ],
+
+  "disableableSkills": [
+    "playwright",
+    "agent-browser",
+    "git-master"
+  ],
+
+  "disableableMCPs": [
+    "context7",
+    "grep_app",
+    "websearch"
+  ],
+
+  "disableableHooks": [
+    "todo-continuation-enforcer",
+    "context-window-monitor",
+    "session-recovery",
+    "session-notification",
+    "comment-checker",
+    "grep-output-truncator",
+    "tool-output-truncator",
+    "directory-agents-injector",
+    "directory-readme-injector",
+    "empty-task-response-detector",
+    "think-mode",
+    "anthropic-context-window-limit-recovery",
+    "rules-injector",
+    "background-notification",
+    "auto-update-checker",
+    "startup-toast",
+    "keyword-detector",
+    "agent-usage-reminder",
+    "non-interactive-env",
+    "interactive-bash-session",
+    "compaction-context-injector",
+    "thinking-block-validator",
+    "claude-code-hooks",
+    "ralph-loop",
+    "preemptive-compaction"
+  ],
+
+  "omoSchemas": {
+    "default": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+    "slim": "https://raw.githubusercontent.com/alvinunreal/oh-my-opencode-slim/master/assets/oh-my-opencode-slim.schema.json"
+  },
+
+  "appPaths": {
+    "claude": {
+      "configDir": "~/.claude/",
+      "settingsFile": "~/.claude/settings.json",
+      "mcpFile": "~/.claude.json",
+      "projectsDir": "~/.claude/projects/",
+      "sessionsDir": "~/.claude/sessions/"
+    },
+    "codex": {
+      "configDir": "~/.codex/",
+      "authFile": "~/.codex/auth.json",
+      "configFile": "~/.codex/config.toml"
+    },
+    "gemini": {
+      "configDir": "~/.gemini/",
+      "envFile": "~/.gemini/.env",
+      "settingsFile": "~/.gemini/settings.json"
+    },
+    "opencode": {
+      "configDir": "~/.config/opencode/",
+      "configFile": "~/.config/opencode/opencode.json",
+      "envFile": "~/.config/opencode/.env",
+      "storageDir": "~/.local/share/opencode/storage/"
+    },
+    "openclaw": {
+      "configDir": "~/.openclaw/",
+      "configFile": "~/.openclaw/openclaw.json",
+      "backupsDir": "~/.cc-switch/backups/openclaw/",
+      "agentsDir": "~/.openclaw/agents/"
+    }
+  },
+
+  "supportedTerminals": {
+    "macOS": ["terminal", "iterm2", "warp", "alacritty", "kitty", "ghostty"],
+    "Windows": ["cmd", "powershell", "wt"],
+    "Linux": ["gnome-terminal", "konsole", "xfce4-terminal", "alacritty", "kitty", "ghostty"]
+  },
+
+  "webdavSync": {
+    "defaultRemoteRoot": "cc-switch-sync",
+    "defaultProfile": "default",
+    "defaultBackupIntervalHours": 24,
+    "defaultBackupRetainCount": 10
+  },
+
+  "omoProfiles": {
+    "sisyphusAgentPlaceholder": {
+      "disabled": false,
+      "default_builder_enabled": false,
+      "planner_enabled": true,
+      "replace_plan": true
+    },
+    "lspPlaceholder": {
+      "typescript-language-server": { "command": ["typescript-language-server", "--stdio"], "extensions": [".ts", ".tsx"], "priority": 10 },
+      "pylsp": { "disabled": true }
+    },
+    "experimentalPlaceholder": {
+      "truncate_all_tool_outputs": true,
+      "aggressive_truncation": true,
+      "auto_resume": true
+    },
+    "backgroundTaskPlaceholder": {
+      "defaultConcurrency": 5,
+      "providerConcurrency": { "anthropic": 3, "openai": 5, "google": 10 },
+      "modelConcurrency": { "anthropic/claude-opus-4-6": 2, "google/gemini-3-flash": 10 }
+    },
+    "browserAutomationPlaceholder": { "provider": "playwright" },
+    "claudeCodePlaceholder": {
+      "mcp": true,
+      "commands": true,
+      "skills": true,
+      "agents": true,
+      "hooks": true,
+      "plugins": true
+    }
+  }
+}

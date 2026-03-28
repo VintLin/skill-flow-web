@@ -1,0 +1,9 @@
+[  394581ms] Error: Internal Next.js error: Router action dispatched before initialization.
+    at dispatchAppRouterAction (http://localhost:3000/_next/static/chunks/08ac_next_dist_client_0n68tje._.js:916:37)
+    at http://localhost:3000/_next/static/chunks/08ac_next_dist_client_0n68tje._.js:11800:61
+    at startTransition (http://localhost:3000/_next/static/chunks/08ac_next_dist_compiled_0a7x~y-._.js:1279:31)
+    at Object.hmrRefresh (http://localhost:3000/_next/static/chunks/08ac_next_dist_client_0n68tje._.js:11799:40)
+    at http://localhost:3000/_next/static/chunks/08ac_next_dist_client_0n68tje._.js:13967:64
+    at startTransition (http://localhost:3000/_next/static/chunks/08ac_next_dist_compiled_0a7x~y-._.js:1279:31)
+    at processMessage (http://localhost:3000/_next/static/chunks/08ac_next_dist_client_0n68tje._.js:13966:44)
+    at WebSocket.handleMessage (http://localhost:3000/_next/static/chunks/08ac_next_dist_client_0n68tje._.js:13335:52)

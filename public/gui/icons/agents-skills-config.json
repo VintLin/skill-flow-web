@@ -1,0 +1,217 @@
+{
+  "$schema": "./icon-schema.json",
+  "source": "cc-switch repository",
+  "sourcePath": "/Users/Vint/Repos/04_Reference/03_Tools/cc-switch",
+
+  "builtinSkillRepos": [
+    {
+      "owner": "anthropics",
+      "name": "skills",
+      "branch": "main",
+      "enabled": true,
+      "description": "Anthropics official Claude Code skills"
+    },
+    {
+      "owner": "ComposioHQ",
+      "name": "awesome-claude-skills",
+      "branch": "master",
+      "enabled": true,
+      "description": "Awesome Claude skills collection"
+    },
+    {
+      "owner": "cexll",
+      "name": "myclaude",
+      "branch": "master",
+      "enabled": true,
+      "description": "MyClaude skills repository"
+    },
+    {
+      "owner": "JimLiu",
+      "name": "baoyu-skills",
+      "branch": "main",
+      "enabled": true,
+      "description": "Baoyu skills collection"
+    }
+  ],
+
+  "builtinAgents": [
+    {
+      "key": "sisyphus",
+      "display": "Sisyphus",
+      "descKey": "omo.agentDesc.sisyphus",
+      "tooltipKey": "omo.agentTooltip.sisyphus",
+      "recommended": "claude-opus-4-6",
+      "group": "main"
+    },
+    {
+      "key": "hephaestus",
+      "display": "Hephaestus",
+      "descKey": "omo.agentDesc.hephaestus",
+      "tooltipKey": "omo.agentTooltip.hephaestus",
+      "recommended": "gpt-5.4",
+      "group": "main"
+    },
+    {
+      "key": "prometheus",
+      "display": "Prometheus",
+      "descKey": "omo.agentDesc.prometheus",
+      "tooltipKey": "omo.agentTooltip.prometheus",
+      "recommended": "claude-opus-4-6",
+      "group": "main"
+    },
+    {
+      "key": "atlas",
+      "display": "Atlas",
+      "descKey": "omo.agentDesc.atlas",
+      "tooltipKey": "omo.agentTooltip.atlas",
+      "recommended": "kimi-k2.5",
+      "group": "main"
+    },
+    {
+      "key": "oracle",
+      "display": "Oracle",
+      "descKey": "omo.agentDesc.oracle",
+      "tooltipKey": "omo.agentTooltip.oracle",
+      "recommended": "gpt-5.4",
+      "group": "sub"
+    },
+    {
+      "key": "librarian",
+      "display": "Librarian",
+      "descKey": "omo.agentDesc.librarian",
+      "tooltipKey": "omo.agentTooltip.librarian",
+      "recommended": "gemini-3-flash",
+      "group": "sub"
+    },
+    {
+      "key": "explore",
+      "display": "Explore",
+      "descKey": "omo.agentDesc.explore",
+      "tooltipKey": "omo.agentTooltip.explore",
+      "recommended": "grok-code-fast-1",
+      "group": "sub"
+    },
+    {
+      "key": "multimodal-looker",
+      "display": "Multimodal-Looker",
+      "descKey": "omo.agentDesc.multimodalLooker",
+      "tooltipKey": "omo.agentTooltip.multimodalLooker",
+      "recommended": "kimi-k2.5",
+      "group": "sub"
+    },
+    {
+      "key": "metis",
+      "display": "Metis",
+      "descKey": "omo.agentDesc.metis",
+      "tooltipKey": "omo.agentTooltip.metis",
+      "recommended": "claude-opus-4-6",
+      "group": "sub"
+    },
+    {
+      "key": "momus",
+      "display": "Momus",
+      "descKey": "omo.agentDesc.momus",
+      "tooltipKey": "omo.agentTooltip.momus",
+      "recommended": "gpt-5.4",
+      "group": "sub"
+    },
+    {
+      "key": "sisyphus-junior",
+      "display": "Sisyphus-Junior",
+      "descKey": "omo.agentDesc.sisyphusJunior",
+      "tooltipKey": "omo.agentTooltip.sisyphusJunior",
+      "group": "sub"
+    }
+  ],
+
+  "slimBuiltinAgents": [
+    {
+      "key": "orchestrator",
+      "display": "Orchestrator",
+      "descKey": "omo.slimAgentDesc.orchestrator",
+      "tooltipKey": "omo.slimAgentTooltip.orchestrator",
+      "recommended": "claude-opus-4-6",
+      "group": "main"
+    },
+    {
+      "key": "oracle",
+      "display": "Oracle",
+      "descKey": "omo.slimAgentDesc.oracle",
+      "tooltipKey": "omo.slimAgentTooltip.oracle",
+      "recommended": "gpt-5.4",
+      "group": "sub"
+    },
+    {
+      "key": "librarian",
+      "display": "Librarian",
+      "descKey": "omo.slimAgentDesc.librarian",
+      "tooltipKey": "omo.slimAgentTooltip.librarian",
+      "recommended": "gemini-3-flash",
+      "group": "sub"
+    },
+    {
+      "key": "explorer",
+      "display": "Explorer",
+      "descKey": "omo.slimAgentDesc.explorer",
+      "tooltipKey": "omo.slimAgentTooltip.explorer",
+      "recommended": "grok-code-fast-1",
+      "group": "sub"
+    },
+    {
+      "key": "designer",
+      "display": "Designer",
+      "descKey": "omo.slimAgentDesc.designer",
+      "tooltipKey": "omo.slimAgentTooltip.designer",
+      "recommended": "gemini-3-pro",
+      "group": "sub"
+    },
+    {
+      "key": "fixer",
+      "display": "Fixer",
+      "descKey": "omo.slimAgentDesc.fixer",
+      "tooltipKey": "omo.slimAgentTooltip.fixer",
+      "recommended": "gpt-5.4",
+      "group": "sub"
+    }
+  ],
+
+  "agentPaths": {
+    "claude": "~/.claude/AGENTS.md",
+    "codex": "~/.codex/AGENTS.md",
+    "gemini": "~/.gemini/GEMINI.md",
+    "opencode": "~/.opencode/AGENTS.md",
+    "openclaw": "~/.openclaw/AGENTS.md"
+  },
+
+  "skillsSSOTPath": "~/.cc-switch/skills/",
+
+  "skillSyncMethods": [
+    { "value": "auto", "label": "Auto (symlink, fallback to copy)" },
+    { "value": "symlink", "label": "Symlink (recommended)" },
+    { "value": "copy", "label": "Copy (compatibility mode)" }
+  ],
+
+  "disableableAgents": [
+    "Prometheus (Planner)",
+    "Atlas",
+    "oracle",
+    "librarian",
+    "explore",
+    "multimodal-looker",
+    "frontend-ui-ux-engineer",
+    "document-writer",
+    "Sisyphus-Junior",
+    "Metis (Plan Consultant)",
+    "Momus (Plan Reviewer)",
+    "OpenCode-Builder"
+  ],
+
+  "disableableSkills": [
+    "playwright",
+    "agent-browser",
+    "git-master"
+  ],
+
+  "omoSchemaUrl": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+  "omoSlimSchemaUrl": "https://raw.githubusercontent.com/alvinunreal/oh-my-opencode-slim/master/assets/oh-my-opencode-slim.schema.json"
+}

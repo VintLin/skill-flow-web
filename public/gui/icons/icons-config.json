@@ -1,0 +1,524 @@
+{
+  "$schema": "./icon-schema.json",
+  "source": "cc-switch repository",
+  "sourcePath": "/Users/Vint/Repos/04_Reference/03_Tools/cc-switch/src/icons/extracted",
+  "icons": [
+    {
+      "name": "aicodemirror",
+      "displayName": "AICodeMirror",
+      "category": "ai-provider",
+      "keywords": ["aicodemirror", "code", "mirror"],
+      "defaultColor": "#E4906E"
+    },
+    {
+      "name": "aicoding",
+      "displayName": "AICoding",
+      "category": "other",
+      "keywords": ["aicoding"],
+      "defaultColor": "#a78bfa"
+    },
+    {
+      "name": "aigocode",
+      "displayName": "AIGoCode",
+      "category": "ai-provider",
+      "keywords": ["aigocode", "aigo", "code", "third-party"],
+      "defaultColor": "#5B7FFF"
+    },
+    {
+      "name": "algocode",
+      "displayName": "AlgoCode",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "alibaba",
+      "displayName": "Alibaba",
+      "category": "ai-provider",
+      "keywords": ["qwen", "tongyi"],
+      "defaultColor": "#FF6A00"
+    },
+    {
+      "name": "anthropic",
+      "displayName": "Anthropic",
+      "category": "ai-provider",
+      "keywords": ["claude"],
+      "defaultColor": "#D4915D"
+    },
+    {
+      "name": "aws",
+      "displayName": "AWS",
+      "category": "cloud",
+      "keywords": ["amazon", "cloud"],
+      "defaultColor": "#FF9900"
+    },
+    {
+      "name": "azure",
+      "displayName": "Azure",
+      "category": "cloud",
+      "keywords": ["microsoft", "cloud"],
+      "defaultColor": "#0078D4"
+    },
+    {
+      "name": "baidu",
+      "displayName": "Baidu",
+      "category": "ai-provider",
+      "keywords": ["ernie", "wenxin"],
+      "defaultColor": "#2932E1"
+    },
+    {
+      "name": "bailian",
+      "displayName": "Bailian",
+      "category": "ai-provider",
+      "keywords": ["bailian", "dashscope", "aliyun", "alibaba"],
+      "defaultColor": "#624AFF"
+    },
+    {
+      "name": "bytedance",
+      "displayName": "bytedance",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "catcoder",
+      "displayName": "CatCoder",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "chatglm",
+      "displayName": "chatglm",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "claude",
+      "displayName": "Claude",
+      "category": "ai-provider",
+      "keywords": ["anthropic"],
+      "defaultColor": "#D4915D"
+    },
+    {
+      "name": "claw",
+      "displayName": "Claw",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "cloudflare",
+      "displayName": "Cloudflare",
+      "category": "cloud",
+      "keywords": ["cloudflare", "cdn"],
+      "defaultColor": "#F38020"
+    },
+    {
+      "name": "cohere",
+      "displayName": "Cohere",
+      "category": "ai-provider",
+      "keywords": ["cohere"],
+      "defaultColor": "#39594D"
+    },
+    {
+      "name": "copilot",
+      "displayName": "copilot",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "crazyrouter",
+      "displayName": "CrazyRouter",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "ctok",
+      "displayName": "CTok",
+      "category": "ai-provider",
+      "keywords": ["ctok", "ai", "programming"],
+      "defaultColor": "#3B82F6"
+    },
+    {
+      "name": "cubence",
+      "displayName": "Cubence",
+      "category": "ai-provider",
+      "keywords": ["cubence", "api", "relay"],
+      "defaultColor": "#4B5563"
+    },
+    {
+      "name": "deepseek",
+      "displayName": "DeepSeek",
+      "category": "ai-provider",
+      "keywords": ["deep", "seek"],
+      "defaultColor": "#1E88E5"
+    },
+    {
+      "name": "doubao",
+      "displayName": "doubao",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "gemini",
+      "displayName": "Gemini",
+      "category": "ai-provider",
+      "keywords": ["google"],
+      "defaultColor": "#4285F4"
+    },
+    {
+      "name": "gemma",
+      "displayName": "gemma",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "github",
+      "displayName": "GitHub",
+      "category": "tool",
+      "keywords": ["git", "version control"],
+      "defaultColor": "#181717"
+    },
+    {
+      "name": "githubcopilot",
+      "displayName": "githubcopilot",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "google",
+      "displayName": "Google",
+      "category": "ai-provider",
+      "keywords": ["gemini", "bard"],
+      "defaultColor": "#4285F4"
+    },
+    {
+      "name": "googlecloud",
+      "displayName": "googlecloud",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "grok",
+      "displayName": "grok",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "huawei",
+      "displayName": "Huawei",
+      "category": "cloud",
+      "keywords": ["huawei", "cloud"],
+      "defaultColor": "#FF0000"
+    },
+    {
+      "name": "huggingface",
+      "displayName": "Hugging Face",
+      "category": "ai-provider",
+      "keywords": ["huggingface", "hf"],
+      "defaultColor": "#FFD21E"
+    },
+    {
+      "name": "hunyuan",
+      "displayName": "hunyuan",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "kimi",
+      "displayName": "Kimi",
+      "category": "ai-provider",
+      "keywords": ["moonshot"],
+      "defaultColor": "#6366F1"
+    },
+    {
+      "name": "longcat",
+      "displayName": "LongCat",
+      "category": "ai-provider",
+      "keywords": ["longcat", "long", "cat"],
+      "defaultColor": "#29E154"
+    },
+    {
+      "name": "mcp",
+      "displayName": "MCP",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "meta",
+      "displayName": "Meta",
+      "category": "ai-provider",
+      "keywords": ["facebook", "llama"],
+      "defaultColor": "#0081FB"
+    },
+    {
+      "name": "micu",
+      "displayName": "MiCu",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "midjourney",
+      "displayName": "midjourney",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "minimax",
+      "displayName": "MiniMax",
+      "category": "ai-provider",
+      "keywords": ["minimax"],
+      "defaultColor": "#FF6B6B"
+    },
+    {
+      "name": "mistral",
+      "displayName": "Mistral",
+      "category": "ai-provider",
+      "keywords": ["mistral"],
+      "defaultColor": "#FF7000"
+    },
+    {
+      "name": "modelscope",
+      "displayName": "ModelScope",
+      "category": "ai-provider",
+      "keywords": ["modelscope", "alibaba", "scope"],
+      "defaultColor": "#624AFF"
+    },
+    {
+      "name": "modelscope-color",
+      "displayName": "ModelScope (Color)",
+      "category": "ai-provider",
+      "keywords": ["modelscope", "alibaba", "scope"],
+      "defaultColor": "#624AFF"
+    },
+    {
+      "name": "newapi",
+      "displayName": "newapi",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "notion",
+      "displayName": "notion",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "novita",
+      "displayName": "Novita AI",
+      "category": "ai-provider",
+      "keywords": ["novita", "novita ai"],
+      "defaultColor": "#000000"
+    },
+    {
+      "name": "nvidia",
+      "displayName": "NVIDIA",
+      "category": "ai-provider",
+      "keywords": ["nvidia", "nim", "gpu"],
+      "defaultColor": "#74B71B"
+    },
+    {
+      "name": "ollama",
+      "displayName": "ollama",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "openai",
+      "displayName": "OpenAI",
+      "category": "ai-provider",
+      "keywords": ["gpt", "chatgpt"],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "opencode-logo-light",
+      "displayName": "OpenCode Logo Light",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "openclaw",
+      "displayName": "OpenClaw",
+      "category": "ai-provider",
+      "keywords": ["openclaw", "lobster", "claw"],
+      "defaultColor": "#ff4f40"
+    },
+    {
+      "name": "openrouter",
+      "displayName": "OpenRouter",
+      "category": "ai-provider",
+      "keywords": ["openrouter", "router", "aggregator"],
+      "defaultColor": "#6566F1"
+    },
+    {
+      "name": "packycode",
+      "displayName": "PackyCode",
+      "category": "ai-provider",
+      "keywords": ["packycode", "packy", "packyapi"],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "palm",
+      "displayName": "palm",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "perplexity",
+      "displayName": "Perplexity",
+      "category": "ai-provider",
+      "keywords": ["perplexity"],
+      "defaultColor": "#20808D"
+    },
+    {
+      "name": "qwen",
+      "displayName": "qwen",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "rc",
+      "displayName": "RC",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "siliconflow",
+      "displayName": "SiliconFlow",
+      "category": "ai-provider",
+      "keywords": ["siliconflow", "flow"],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "sssaicode",
+      "displayName": "SSSAICode",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "stability",
+      "displayName": "stability",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "stepfun",
+      "displayName": "StepFun",
+      "category": "ai-provider",
+      "keywords": ["stepfun", "step", "jieyue", "阶跃星辰"],
+      "defaultColor": "#005AFF"
+    },
+    {
+      "name": "tencent",
+      "displayName": "Tencent",
+      "category": "ai-provider",
+      "keywords": ["hunyuan"],
+      "defaultColor": "#00A4FF"
+    },
+    {
+      "name": "ucloud",
+      "displayName": "UCloud",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "vercel",
+      "displayName": "vercel",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "wenxin",
+      "displayName": "wenxin",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "x-code",
+      "displayName": "X-Code",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "xai",
+      "displayName": "xai",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "xiaomimimo",
+      "displayName": "Xiaomi MiMo",
+      "category": "ai-provider",
+      "keywords": ["xiaomimimo", "xiaomi", "mimo"],
+      "defaultColor": "#000000"
+    },
+    {
+      "name": "yi",
+      "displayName": "yi",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "zeroone",
+      "displayName": "zeroone",
+      "category": "other",
+      "keywords": [],
+      "defaultColor": "currentColor"
+    },
+    {
+      "name": "zhipu",
+      "displayName": "Zhipu AI",
+      "category": "ai-provider",
+      "keywords": ["chatglm", "glm"],
+      "defaultColor": "#0F62FE"
+    },
+    {
+      "name": "aihubmix",
+      "displayName": "AiHubMix",
+      "category": "ai-provider",
+      "keywords": ["aihubmix", "hub", "mix", "aggregator"],
+      "defaultColor": "#006FFB"
+    },
+    {
+      "name": "aihubmix-color",
+      "displayName": "AiHubMix (Color)",
+      "category": "ai-provider",
+      "keywords": ["aihubmix", "hub", "mix", "aggregator"],
+      "defaultColor": "#006FFB"
+    }
+  ],
+  "categories": [
+    { "id": "ai-provider", "name": "AI Provider", "description": "AI model providers and services" },
+    { "id": "cloud", "name": "Cloud", "description": "Cloud computing platforms" },
+    { "id": "tool", "name": "Tool", "description": "Developer tools and services" },
+    { "id": "other", "name": "Other", "description": "Other icons" }
+  ]
+}

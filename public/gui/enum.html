@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill Flow - Menu Cards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ebebeb;
+      --surface: #f1f1f1;
+      --ink: #262626;
+      --ink-soft: rgba(38, 38, 38, 0.6);
+      --line: rgba(8, 8, 8, 0.1);
+      --accent: #ff611a;
+      --radius: 8px;
+      --radius-lg: 10px;
+      --h-ui: 28px;
+      --font-sans: 'Manrope', 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: var(--font-sans);
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 520px at 15% -10%, rgba(255, 255, 255, 0.7), transparent 62%),
+        radial-gradient(980px 460px at 88% 108%, rgba(8, 8, 8, 0.08), transparent 68%),
+        radial-gradient(700px 240px at 50% 0%, rgba(255, 255, 255, 0.42), transparent 70%),
+        var(--bg);
+      overflow: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(rgba(0, 0, 0, 0.06) 0.45px, transparent 0.45px),
+        radial-gradient(rgba(255, 255, 255, 0.35) 0.5px, transparent 0.5px);
+      background-size: 3px 3px, 5px 5px;
+      background-position: 0 0, 1px 1px;
+      opacity: 0.22;
+      mix-blend-mode: multiply;
+      z-index: 0;
+    }
+
+    body.theme-dark {
+      --bg: #161618;
+      --surface: #202024;
+      --ink: #e5e5e7;
+      --ink-soft: rgba(229, 229, 231, 0.62);
+      --line: rgba(255, 255, 255, 0.14);
+      background:
+        radial-gradient(1200px 520px at 15% -10%, rgba(255, 255, 255, 0.08), transparent 62%),
+        radial-gradient(980px 460px at 88% 108%, rgba(0, 0, 0, 0.5), transparent 68%),
+        radial-gradient(700px 240px at 50% 0%, rgba(255, 255, 255, 0.06), transparent 70%),
+        #161618;
+    }
+
+    body.theme-dark::before {
+      opacity: 0.14;
+      mix-blend-mode: screen;
+    }
+
+    .desktop { position: relative; z-index: 1; height: 100vh; }
+
+    .menubar {
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 12px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(242, 242, 242, 0.86);
+      backdrop-filter: blur(8px);
+    }
+
+    .menubar-btn {
+      width: 20px;
+      height: 20px;
+      border: none;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.62);
+      box-shadow: 0 1px 3px rgba(8, 8, 8, 0.12);
+      color: rgba(38, 38, 38, 0.9);
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .theme-toggle {
+      width: 20px;
+      height: 20px;
+      border: none;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.62);
+      box-shadow: 0 1px 3px rgba(8, 8, 8, 0.12);
+      color: rgba(38, 38, 38, 0.9);
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-left: 6px;
+    }
+
+    .popover-wrap {
+      position: absolute;
+      top: 34px;
+      right: 10px;
+      width: 360px;
+    }
+
+    .popover-arrow {
+      width: 10px;
+      height: 10px;
+      transform: rotate(45deg);
+      background: var(--surface);
+      border-top: 1px solid rgba(8, 8, 8, 0.08);
+      border-left: 1px solid rgba(8, 8, 8, 0.08);
+      margin-left: auto;
+      margin-right: 13px;
+      position: relative;
+      top: 5px;
+      z-index: 2;
+    }
+
+    .popover {
+      height: 460px;
+      border-radius: 12px;
+      border: 1px solid rgba(8, 8, 8, 0.08);
+      background: var(--surface);
+      box-shadow: 0 18px 38px rgba(8, 8, 8, 0.26);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .topbar {
+      padding: 8px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 6px;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .search {
+      position: relative;
+    }
+
+    .search input {
+      width: 100%;
+      height: var(--h-ui);
+      border: none;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.66);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.92), 0 1px 2px rgba(8, 8, 8, 0.12);
+      padding: 0 28px;
+      font-size: 10px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-family: inherit;
+    }
+
+    .search::before {
+      content: '⌕';
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(38, 38, 38, 0.5);
+      font-size: 12px;
+    }
+
+    .close {
+      width: var(--h-ui);
+      height: var(--h-ui);
+      border: none;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.58);
+      box-shadow: 0 1px 2px rgba(8, 8, 8, 0.12);
+      color: rgba(38, 38, 38, 0.82);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .actionbar {
+      height: 38px;
+      padding: 0 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      border-top: 1px solid var(--line);
+    }
+
+    .import-wrap {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .action-btn {
+      height: 22px;
+      border: none;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.66);
+      box-shadow: 0 1px 3px rgba(8, 8, 8, 0.12);
+      color: rgba(38, 38, 38, 0.84);
+      font-size: 10px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 0 8px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .action-btn.active {
+      background: rgba(255, 97, 26, 0.25);
+      color: #2f1c12;
+    }
+
+    .import-input {
+      width: 0;
+      min-width: 0;
+      opacity: 0;
+      border: none;
+      border-radius: 6px;
+      height: 22px;
+      padding: 0;
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 1px 2px rgba(8, 8, 8, 0.12);
+      font-size: 10px;
+      font-family: var(--font-mono);
+      transition: width 180ms ease, opacity 120ms ease, padding 180ms ease;
+    }
+
+    .import-wrap.open .import-input {
+      width: 170px;
+      opacity: 1;
+      padding: 0 7px;
+    }
+
+    .list {
+      overflow: auto;
+      min-height: 0;
+      display: grid;
+      gap: 8px;
+      align-content: start;
+      padding: 8px 10px 14px 8px;
+    }
+
+    .group-card {
+      background: rgba(255, 255, 255, 0.58);
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 10px 22px rgba(8, 8, 8, 0.12);
+      display: grid;
+      gap: 7px;
+    }
+
+    .group-title {
+      padding-bottom: 6px;
+      border-bottom: 1px dashed rgba(38, 38, 38, 0.18);
+    }
+
+    .group-name {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 1px;
+    }
+
+    .group-source {
+      font-size: 10px;
+      color: var(--ink-soft);
+      font-family: var(--font-mono);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .tabs-row {
+      display: grid;
+      gap: 5px;
+    }
+
+    .tab-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-soft);
+      font-weight: 700;
+    }
+
+    .chip-row {
+      display: flex;
+      gap: 5px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: none;
+    }
+
+    .chip-row::-webkit-scrollbar { display: none; }
+
+    .neo-switch {
+      width: 20px;
+      height: 19px;
+      border: none;
+      border-radius: 6px;
+      font-size: 7px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 700;
+      cursor: pointer;
+      flex-shrink: 0;
+      background: rgba(148, 163, 184, 0.3);
+      color: rgba(71, 85, 105, 0.95);
+    }
+
+    .neo-switch.on {
+      background: rgba(34, 197, 94, 0.26);
+      color: rgba(22, 101, 52, 0.95);
+    }
+
+    .neo-switch.mid {
+      background: rgba(234, 179, 8, 0.32);
+      color: rgba(146, 64, 14, 0.95);
+    }
+
+    .skill-chip {
+      border: none;
+      border-radius: 6px;
+      background: rgba(170, 170, 170, 0.35);
+      height: 19px;
+      padding: 0 6px;
+      font-size: 7px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ink);
+      opacity: 0.7;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .skill-chip.enabled {
+      background: rgba(255, 97, 26, 0.35);
+      opacity: 1;
+    }
+
+    .agent-chip {
+      width: 19px;
+      height: 19px;
+      border-radius: 6px;
+      border: none;
+      padding: 3px;
+      background: rgba(170, 170, 170, 0.35);
+      opacity: 0.7;
+      cursor: pointer;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+    }
+
+    .agent-chip.enabled {
+      background: rgba(255, 97, 26, 0.35);
+      opacity: 1;
+    }
+
+    .agent-chip img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 0.45;
+    }
+
+    .agent-chip.enabled img {
+      opacity: 1;
+    }
+
+    .list {
+      scrollbar-width: none;
+    }
+
+    .list::-webkit-scrollbar {
+      display: none;
+    }
+
+    .desktop-client {
+      position: absolute;
+      top: 34px;
+      right: 374px;
+      width: 520px;
+      height: 460px;
+      border-radius: 12px;
+      border: 1px solid rgba(8, 8, 8, 0.08);
+      background: var(--surface);
+      box-shadow: 0 18px 38px rgba(8, 8, 8, 0.2);
+      padding: 10px;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 8px;
+      transform: translateX(12px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .desktop-client.open {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .client-head {
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.54);
+      box-shadow: 0 4px 10px rgba(8, 8, 8, 0.08);
+      height: 34px;
+      padding: 0 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .client-body {
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.54);
+      box-shadow: 0 4px 10px rgba(8, 8, 8, 0.08);
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      overflow: hidden;
+    }
+
+    .client-side {
+      border-right: 1px solid var(--line);
+      padding: 10px;
+      display: grid;
+      gap: 8px;
+      align-content: start;
+    }
+
+    .client-main {
+      padding: 10px;
+      display: grid;
+      gap: 8px;
+      align-content: start;
+    }
+
+    .client-block {
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 1px 3px rgba(8, 8, 8, 0.08);
+      padding: 8px;
+      font-size: 10px;
+      color: var(--ink-soft);
+      font-family: var(--font-mono);
+      line-height: 1.4;
+    }
+
+    body.theme-dark .menubar,
+    body.theme-dark .popover,
+    body.theme-dark .desktop-client {
+      background: #202024;
+    }
+
+    body.theme-dark .menubar-btn,
+    body.theme-dark .theme-toggle,
+    body.theme-dark .search input,
+    body.theme-dark .close,
+    body.theme-dark .action-btn,
+    body.theme-dark .group-card,
+    body.theme-dark .client-head,
+    body.theme-dark .client-body,
+    body.theme-dark .client-block {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--ink);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.32);
+    }
+
+    body.theme-dark .popover-arrow {
+      background: #202024;
+    }
+
+    body.theme-dark .popover,
+    body.theme-dark .desktop-client,
+    body.theme-dark .topbar,
+    body.theme-dark .actionbar,
+    body.theme-dark .group-title,
+    body.theme-dark .client-side {
+      border-color: rgba(255, 255, 255, 0.14);
+    }
+
+    body.theme-dark .group-name {
+      color: rgba(239, 239, 241, 0.96);
+    }
+
+    body.theme-dark .group-source,
+    body.theme-dark .tab-label,
+    body.theme-dark .enum-card-desc,
+    body.theme-dark .client-block {
+      color: rgba(225, 225, 228, 0.74);
+    }
+
+    body.theme-dark .enum-card,
+    body.theme-dark .search,
+    body.theme-dark .topbar,
+    body.theme-dark .actionbar {
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.32);
+    }
+
+    body.theme-dark .skill-chip,
+    body.theme-dark .agent-chip,
+    body.theme-dark .neo-switch {
+      background: rgba(255, 255, 255, 0.12);
+      color: rgba(230, 230, 232, 0.88);
+      opacity: 0.9;
+    }
+
+    body.theme-dark .skill-chip.enabled,
+    body.theme-dark .agent-chip.enabled {
+      background: rgba(255, 97, 26, 0.36);
+      color: rgba(253, 253, 254, 0.96);
+    }
+
+    body.theme-dark .neo-switch.on {
+      background: rgba(34, 197, 94, 0.34);
+      color: rgba(206, 250, 222, 0.96);
+    }
+
+    body.theme-dark .neo-switch.off {
+      background: rgba(148, 163, 184, 0.3);
+      color: rgba(232, 236, 242, 0.96);
+    }
+
+    body.theme-dark .neo-switch.mid {
+      background: rgba(234, 179, 8, 0.3);
+      color: rgba(255, 239, 198, 0.95);
+    }
+  </style>
+</head>
+<body>
+  <div class="desktop">
+    <div class="menubar">
+      <button class="menubar-btn" id="open-popover">SF</button>
+      <button class="theme-toggle" id="theme-toggle">◐</button>
+    </div>
+
+    <div class="popover-wrap" id="popover-wrap">
+      <div class="popover-arrow"></div>
+      <section class="popover">
+        <div class="topbar">
+          <div class="search">
+            <input id="search-input" type="text" placeholder="Search Group / Source">
+          </div>
+          <button class="close" id="close-popover">×</button>
+        </div>
+        <div class="list" id="group-list"></div>
+        <div class="actionbar">
+          <div class="import-wrap" id="import-wrap">
+            <button class="action-btn" id="import-btn">Import</button>
+            <input class="import-input" id="import-input" type="text" placeholder="repo / path">
+          </div>
+          <button class="action-btn" id="detail-btn">Details</button>
+        </div>
+      </section>
+    </div>
+
+    <section class="desktop-client" id="desktop-client">
+      <header class="client-head">
+        <span>Desktop Client</span>
+        <span>Preview</span>
+      </header>
+      <div class="client-body">
+        <aside class="client-side">
+          <div class="client-block">Groups</div>
+          <div class="client-block">Skills</div>
+          <div class="client-block">Agents</div>
+        </aside>
+        <main class="client-main">
+          <div class="client-block">Client workspace expanded from menu detail view.</div>
+          <div class="client-block">Here you can map current group card settings into desktop layout regions.</div>
+          <div class="client-block">Selection and toggle states can be synchronized with the menu cards.</div>
+        </main>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const groups = [
+      { id: 'frontend', name: 'Frontend Skills', source: 'github.com/vint/skills-frontend' },
+      { id: 'backend', name: 'Backend Skills', source: 'github.com/vint/skills-backend' },
+      { id: 'devops', name: 'DevOps Tools', source: 'github.com/vint/skills-devops' },
+      { id: 'data-science', name: 'Data Science', source: 'github.com/vint/skills-ds' }
+    ];
+
+    const targets = [
+      { id: 'claude-code', name: 'Claude Code', icon: './svg_icons/claude-code.svg' },
+      { id: 'cursor', name: 'Cursor', icon: './svg_icons/cursor.svg' },
+      { id: 'codex', name: 'Codex', icon: './svg_icons/codex.png' },
+      { id: 'windsurf', name: 'Windsurf', icon: './svg_icons/windsurf.svg' }
+    ];
+
+    const skills = {
+      frontend: [{ id: 'eslint', title: 'ESLint' }, { id: 'prettier', title: 'Prettier' }, { id: 'typescript', title: 'TypeScript' }, { id: 'vitest', title: 'Vitest' }],
+      backend: [{ id: 'nodejs', title: 'Node.js' }, { id: 'python', title: 'Python' }, { id: 'docker', title: 'Docker' }],
+      devops: [{ id: 'terraform', title: 'Terraform' }, { id: 'kubernetes', title: 'Kubernetes' }, { id: 'ansible', title: 'Ansible' }],
+      'data-science': [{ id: 'pandas', title: 'Pandas' }, { id: 'numpy', title: 'NumPy' }, { id: 'jupyter', title: 'Jupyter' }]
+    };
+
+    const bindings = {
+      frontend: { enabledSkills: ['eslint', 'prettier'], enabledAgents: ['claude-code', 'cursor'] },
+      backend: { enabledSkills: ['nodejs', 'docker'], enabledAgents: ['claude-code'] },
+      devops: { enabledSkills: ['terraform'], enabledAgents: ['cursor', 'windsurf'] },
+      'data-science': { enabledSkills: ['pandas', 'numpy'], enabledAgents: ['codex'] }
+    };
+
+    const listEl = document.getElementById('group-list');
+    const searchEl = document.getElementById('search-input');
+    const wrapEl = document.getElementById('popover-wrap');
+    const themeToggleEl = document.getElementById('theme-toggle');
+    const importWrapEl = document.getElementById('import-wrap');
+    const importBtnEl = document.getElementById('import-btn');
+    const importInputEl = document.getElementById('import-input');
+    const detailBtnEl = document.getElementById('detail-btn');
+    const desktopClientEl = document.getElementById('desktop-client');
+    const THEME_KEY = 'skill-flow-theme';
+
+    function getSavedTheme() {
+      const saved = localStorage.getItem(THEME_KEY);
+      return saved === 'dark' ? 'dark' : 'light';
+    }
+
+    function applyTheme(theme) {
+      document.body.classList.toggle('theme-dark', theme === 'dark');
+      if (themeToggleEl) {
+        themeToggleEl.textContent = theme === 'dark' ? '☀' : '◐';
+      }
+    }
+
+    function toggleTheme() {
+      const nextTheme = document.body.classList.contains('theme-dark') ? 'light' : 'dark';
+      localStorage.setItem(THEME_KEY, nextTheme);
+      applyTheme(nextTheme);
+    }
+
+    function triState(enabledCount, totalCount) {
+      if (enabledCount <= 0) return 'off';
+      if (totalCount > 0 && enabledCount === totalCount) return 'on';
+      return 'mid';
+    }
+
+    function stateText(state) {
+      if (state === 'on') return 'ON';
+      if (state === 'mid') return 'MIX';
+      return 'OFF';
+    }
+
+    function render() {
+      const q = searchEl.value.trim().toLowerCase();
+      const result = groups.filter((group) => {
+        if (!q) return true;
+        return group.name.toLowerCase().includes(q) || group.source.toLowerCase().includes(q);
+      });
+
+      listEl.innerHTML = result.map((group) => {
+        const skillList = skills[group.id] || [];
+        const binding = bindings[group.id] || { enabledSkills: [], enabledAgents: [] };
+        const skillState = triState(binding.enabledSkills.length, skillList.length);
+        const agentState = triState(binding.enabledAgents.length, targets.length);
+
+        return `
+          <article class="group-card">
+            <div class="group-title">
+              <div class="group-name">${group.name}</div>
+              <div class="group-source">${group.source}</div>
+            </div>
+
+            <section class="tabs-row">
+              <div class="tab-label">Skills</div>
+              <div class="chip-row">
+                <button class="neo-switch ${skillState}" data-toggle-all-skills="${group.id}">${stateText(skillState)}</button>
+                ${skillList.map((skill) => {
+                  const on = binding.enabledSkills.includes(skill.id);
+                  return `<button class="skill-chip ${on ? 'enabled' : ''}" data-toggle-skill="${group.id}:${skill.id}">${skill.title}</button>`;
+                }).join('')}
+              </div>
+            </section>
+
+            <section class="tabs-row">
+              <div class="tab-label">Agents</div>
+              <div class="chip-row">
+                <button class="neo-switch ${agentState}" data-toggle-all-agents="${group.id}">${stateText(agentState)}</button>
+                ${targets.map((agent) => {
+                  const on = binding.enabledAgents.includes(agent.id);
+                  return `
+                    <button class="agent-chip ${on ? 'enabled' : ''}" data-toggle-agent="${group.id}:${agent.id}" title="${agent.name}">
+                      <img src="${agent.icon}" alt="${agent.name}">
+                    </button>
+                  `;
+                }).join('')}
+              </div>
+            </section>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function toggleSkill(groupId, skillId) {
+      const bind = bindings[groupId];
+      if (!bind) return;
+      const idx = bind.enabledSkills.indexOf(skillId);
+      if (idx === -1) bind.enabledSkills.push(skillId);
+      else bind.enabledSkills.splice(idx, 1);
+      render();
+    }
+
+    function toggleAgent(groupId, agentId) {
+      const bind = bindings[groupId];
+      if (!bind) return;
+      const idx = bind.enabledAgents.indexOf(agentId);
+      if (idx === -1) bind.enabledAgents.push(agentId);
+      else bind.enabledAgents.splice(idx, 1);
+      render();
+    }
+
+    function toggleAllSkills(groupId) {
+      const bind = bindings[groupId];
+      const skillList = skills[groupId] || [];
+      if (!bind) return;
+      if (bind.enabledSkills.length === skillList.length) bind.enabledSkills = [];
+      else bind.enabledSkills = skillList.map((s) => s.id);
+      render();
+    }
+
+    function toggleAllAgents(groupId) {
+      const bind = bindings[groupId];
+      if (!bind) return;
+      if (bind.enabledAgents.length === targets.length) bind.enabledAgents = [];
+      else bind.enabledAgents = targets.map((t) => t.id);
+      render();
+    }
+
+    listEl.addEventListener('click', (event) => {
+      const skill = event.target.closest('[data-toggle-skill]');
+      if (skill) {
+        const [groupId, skillId] = skill.dataset.toggleSkill.split(':');
+        toggleSkill(groupId, skillId);
+        return;
+      }
+
+      const agent = event.target.closest('[data-toggle-agent]');
+      if (agent) {
+        const [groupId, agentId] = agent.dataset.toggleAgent.split(':');
+        toggleAgent(groupId, agentId);
+        return;
+      }
+
+      const allSkills = event.target.closest('[data-toggle-all-skills]');
+      if (allSkills) {
+        toggleAllSkills(allSkills.dataset.toggleAllSkills);
+        return;
+      }
+
+      const allAgents = event.target.closest('[data-toggle-all-agents]');
+      if (allAgents) {
+        toggleAllAgents(allAgents.dataset.toggleAllAgents);
+      }
+    });
+
+    searchEl.addEventListener('input', render);
+
+    document.getElementById('close-popover').addEventListener('click', () => {
+      wrapEl.style.display = 'none';
+      desktopClientEl.classList.remove('open');
+      detailBtnEl.classList.remove('active');
+    });
+
+    document.getElementById('open-popover').addEventListener('click', () => {
+      wrapEl.style.display = '';
+    });
+
+    importBtnEl.addEventListener('click', () => {
+      importWrapEl.classList.toggle('open');
+      importBtnEl.classList.toggle('active');
+      if (importWrapEl.classList.contains('open')) {
+        importInputEl.focus();
+      }
+    });
+
+    detailBtnEl.addEventListener('click', () => {
+      desktopClientEl.classList.toggle('open');
+      detailBtnEl.classList.toggle('active');
+    });
+
+    if (themeToggleEl) {
+      themeToggleEl.addEventListener('click', toggleTheme);
+    }
+
+    applyTheme(getSavedTheme());
+    render();
+  </script>
+</body>
+</html>
