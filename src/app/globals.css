@@ -240,10 +240,20 @@ html.lenis body {
   }
 }
 
-.animate-scroll {
-  animation: scroll 30s linear infinite;
+@media (prefers-reduced-motion: no-preference) {
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
 }
 
-.animate-scroll:hover {
-  animation-play-state: paused;
+.scrollbar-none {
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }

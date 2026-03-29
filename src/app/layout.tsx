@@ -22,33 +22,35 @@ const firaMono = Fira_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Midlife Engineering – Sound therapy for a harmonious mind",
+  title: "Skill Flow – Universal AI Agent Skills Management",
   description:
-    "A space where calm meets ambient clarity, inviting you to pause, breathe, and explore sound with harmony, and a slower rhythm.",
+    "Install, manage, and share skills across every major coding agent — Claude Code, Cursor, Copilot, and more. Unified skill management for professional developers.",
   keywords: [
-    "ambient music",
-    "sound therapy",
-    "mindfulness",
-    "relaxation",
-    "stress relief",
-    "sleep",
+    "AI coding agents",
+    "skill management",
+    "Claude Code",
+    "Cursor",
+    "GitHub Copilot",
+    "developer tools",
+    "AI agents",
+    "coding assistant",
   ],
-  authors: [{ name: "1042 Studio" }],
+  authors: [{ name: "VintLin" }],
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "Midlife Engineering – Sound therapy for a harmonious mind",
+    title: "Skill Flow – Universal AI Agent Skills Management",
     description:
-      "A space where calm meets ambient clarity, inviting you to pause, breathe, and explore sound with harmony.",
+      "Install, manage, and share skills across every major coding agent. Unified skill management for professional developers.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Midlife Engineering – Sound therapy for a harmonious mind",
+    title: "Skill Flow – Universal AI Agent Skills Management",
     description:
-      "A space where calm meets ambient clarity, inviting you to pause, breathe, and explore sound with harmony.",
+      "Install, manage, and share skills across every major coding agent. Unified skill management for professional developers.",
   },
 };
 

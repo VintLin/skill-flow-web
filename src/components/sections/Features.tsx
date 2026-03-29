@@ -26,10 +26,10 @@ export function Features() {
         {features.map((feature) => (
           <div
             key={feature.title}
-            className="p-6 bg-card border border-[var(--color-3)] rounded-lg hover:border-foreground/20 transition-colors"
+            className="p-6 bg-card border border-border rounded-lg hover:border-foreground/20 transition-colors"
           >
             <h3 className="text-xl font-medium mb-2">{feature.title}</h3>
-            <p className="text-foreground/70">{feature.description}</p>
+            <p className="text-muted-foreground">{feature.description}</p>
           </div>
         ))}
       </div>

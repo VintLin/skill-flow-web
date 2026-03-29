@@ -23,7 +23,7 @@ export function Agents() {
           {[...agents, ...agents].map((agent, index) => (
             <div
               key={`${agent.name}-${index}`}
-              className="flex-shrink-0 flex items-center gap-3 px-4 py-2 bg-black rounded-full border border-border/50 hover:border-border transition-colors"
+              className="flex-shrink-0 flex items-center gap-3 px-4 py-2 bg-card rounded-full border border-border/50 hover:border-border transition-colors"
             >
               <Image
                 src={agent.icon}

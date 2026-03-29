@@ -39,7 +39,7 @@ export function FAQ() {
             <AccordionTrigger className="text-left">
               {faq.question}
             </AccordionTrigger>
-            <AccordionContent className="text-foreground/70">
+            <AccordionContent className="text-muted-foreground">
               {faq.answer}
             </AccordionContent>
           </AccordionItem>

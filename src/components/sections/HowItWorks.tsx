@@ -29,9 +29,9 @@ export function HowItWorks() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {steps.map((step) => (
           <div key={step.number} className="space-y-3">
-            <div className="text-4xl font-medium text-foreground/30">{step.number}</div>
+            <div className="text-4xl font-medium text-muted-foreground/50">{step.number}</div>
             <h3 className="text-xl font-medium">{step.title}</h3>
-            <p className="text-foreground/70">{step.description}</p>
+            <p className="text-muted-foreground">{step.description}</p>
           </div>
         ))}
       </div>

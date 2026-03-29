@@ -42,3 +42,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# temporary files and development artifacts
+.impeccable.md
+README-SKILLFLOW.md
+home.html
+menu.html
+icons.js
+mock-data.js
+*.png
+/*.svg
+
+# MCP logs and cache
+.playwright-mcp/

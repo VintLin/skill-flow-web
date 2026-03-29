@@ -6,10 +6,10 @@ export function Hero() {
       <GuiPreview />
       <div className="max-w-4xl space-y-8">
         <div className="space-y-4">
-            <div className="text-[15px] lg:text-[19px] tracking-tight font-mono font-medium uppercase text-foreground/60 mb-4">
+            <div className="text-sm lg:text-base tracking-tight font-mono font-medium uppercase text-muted-foreground mb-4">
               Universal AI Agent Skills
             </div>
-            <pre className="text-[12px] lg:text-[15px] tracking-[-1px] leading-[125%] text-foreground select-none whitespace-pre font-[family-name:'Fira_Mono']">
+            <pre className="text-xs lg:text-sm tracking-tighter leading-tight text-foreground select-none whitespace-pre" style={{ fontFamily: 'var(--font-fira-mono)' }}>
 {`███████╗██╗  ██╗██╗██╗     ██╗         ███████╗██╗      ██████╗ ██╗    ██╗
 ██╔════╝██║ ██╔╝██║██║     ██║         ██╔════╝██║     ██╔═══██╗██║    ██║
 ███████╗█████╔╝ ██║██║     ██║         █████╗  ██║     ██║   ██║██║ █╗ ██║
@@ -17,7 +17,7 @@ export function Hero() {
 ███████║██║  ██╗██║███████╗███████╗    ██║     ███████╗╚██████╔╝╚███╔███╔╝
 ╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝    ╚═╝     ╚══════╝ ╚═════╝  ╚══╝╚══╝`}
             </pre>
-            <p className="text-lg text-foreground/70 max-w-2xl">
+            <p className="text-lg text-muted-foreground max-w-2xl">
               Install, manage, and share skills across every major coding agent — Claude Code, Cursor, Copilot, and more.
             </p>
           </div>
@@ -27,13 +27,13 @@ export function Hero() {
               href="https://github.com/VintLin/skill-flow"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 transition-opacity"
+              className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:scale-[0.98] transition-all"
             >
               View on GitHub
             </a>
             <a
               href="#features"
-              className="px-6 py-3 border border-border rounded-lg font-medium hover:bg-accent/10 transition-colors"
+              className="px-6 py-3 border border-border rounded-lg font-medium hover:bg-accent/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:scale-[0.98] transition-all"
             >
               See Features
             </a>
